@@ -9,13 +9,23 @@ import { EditSchoolComponent } from './components/edit-school/edit-school.compon
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SchoolService } from './services/school.service';
+import { ListPlaceComponent } from './components/list-place/list-place.component';
+import { CreatePlaceComponent } from './components/create-place/create-place.component';
+import { PlaceService } from './services/place.service';
+import { LoginComponent } from './login/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateSchoolComponent,
     ListSchoolComponent,
-    EditSchoolComponent
+    EditSchoolComponent,
+    ListPlaceComponent,
+    CreatePlaceComponent,
+    LoginComponent,
+    DashboardComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -23,7 +33,7 @@ import { SchoolService } from './services/school.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [SchoolService],
+  providers: [SchoolService,PlaceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

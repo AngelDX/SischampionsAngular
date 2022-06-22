@@ -20,15 +20,16 @@ export class CreateSchoolComponent implements OnInit {
   }
 
   submitForm(schoolForm:NgForm){
+    console.log(schoolForm.value)
     if(schoolForm.value.id==null){
       this.schoolService.CreateSchool(schoolForm.value)
       .subscribe((response)=>{
-        this.router.navigate([""]);
+        this.router.navigate(["/list-school"]);
       });
     }else{
       this.schoolService.UpdateSchool(schoolForm.value.id,schoolForm.value)
       .subscribe((response)=>{
-        this.router.navigate([""]);
+        this.router.navigate(["/list-school"]);
       });
     }
     this.resetForm(schoolForm);

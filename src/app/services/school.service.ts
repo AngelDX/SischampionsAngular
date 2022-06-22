@@ -11,15 +11,16 @@ export class SchoolService {
   selectSchool:School=new School();
   reqHeader=new HttpHeaders({
     'Content-Type':'aplication/json',
-  })
+    'Authorization':'bearer'+localStorage.getItem('token')
+  });
 
   constructor(private http:HttpClient) { }
-  baseurl='http://127.0.0.1:8000/api/';
+  baseurl='http://127.0.0.1:8000/api/auth/';
   //baseurl='http://champions-fia.herokuapp.com/api/';
 
   //metodo GET
   GetSchools():Observable<School>{
-    return this.http.get<School>(this.baseurl+'schools/');
+    return this.http.get<School>(this.baseurl+'schools/',{headers:this.reqHeader});
   }
   //metodo POST
   CreateSchool(school:School):Observable<School>{
